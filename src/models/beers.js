@@ -14,7 +14,7 @@ Beers.prototype.getData = function () {
   myPromise.then((data) => {
     this.data = data;
 
-    PubSub.publish('munrosListView:data', this.data);
+    PubSub.publish('complete-beer:data', this.data);
   })
   .catch((err) =>{
     console.error(err);
