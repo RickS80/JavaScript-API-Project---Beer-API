@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text|Roboto');
+
+body {
+  background-image: url('../images/blurred-bar.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 112px;
+  color: white;
+
+}
+
+h3, p, li {
+font-family: 'Roboto', sans-serif;
+color: white;
+}
+
+.image {
+  height:200px
+}

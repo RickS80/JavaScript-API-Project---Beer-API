@@ -11,14 +11,36 @@ BeerView.prototype.render = function () {
      h3.textContent = this.data.name
      this.space.appendChild(h3)
 
-     const p = document.createElement('p')
-     p.textContent = this.data.description
-     this.space.appendChild(p)
+     const description = document.createElement('p')
+     description.textContent = this.data.description
+     this.space.appendChild(description)
 
-     
+     const image = document.createElement('img');
+     image.src = this.data.image_url
+     image.className = 'image';
+     this.space.appendChild(image);
 
+     const foodPairingTitle = document.createElement('h3');
+     foodPairingTitle.textContent = `Suggested Food Pairings:`
+     this.space.appendChild(foodPairingTitle);
+
+     const foodPairingList = this.createPairingList(this.data.food_pairing);
+     this.space.appendChild(foodPairingList);
 
 }
+
+BeerView.prototype.createPairingList = function (pairings) {
+   const list = document.createElement('ul');
+
+   pairings.forEach((pairing) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = pairing;
+    list.appendChild(listItem);
+   });
+
+   return list;
+
+ };
 
 
 module.exports = BeerView;
