@@ -7,9 +7,13 @@ const BeerView = function(space, data){
 BeerView.prototype.render = function () {
   this.space.innerHTML = " "
 
-     const h3 = document.createElement('h3')
-     h3.textContent = this.data.name
-     this.space.appendChild(h3)
+     const title = document.createElement('h2')
+     title.textContent = `${this.data.name} (abv: ${this.data.abv}%)`
+     this.space.appendChild(title)
+
+     const tagline = document.createElement('h4')
+     tagline.textContent = this.data.tagline
+     this.space.appendChild(tagline)
 
      const description = document.createElement('p')
      description.textContent = this.data.description
@@ -18,6 +22,7 @@ BeerView.prototype.render = function () {
      const image = document.createElement('img');
      image.src = this.data.image_url
      image.className = 'image';
+     // image.classList.add('center')
      this.space.appendChild(image);
 
      const foodPairingTitle = document.createElement('h3');
