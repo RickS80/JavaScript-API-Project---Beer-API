@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const getData = new Beers
-console.log(getData);
+// console.log(getData);
 getData.getData();
 
 });

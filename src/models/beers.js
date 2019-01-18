@@ -6,6 +6,7 @@ const Beers = function() {
   this.data = [];
 }
 
+
 Beers.prototype.getData = function () {
   const url = 'https://api.punkapi.com/v2/beers'
   const request = new RequestHelper(url)
@@ -14,12 +15,25 @@ Beers.prototype.getData = function () {
   myPromise.then((data) => {
     this.data = data;
 
-    PubSub.publish('complete-beer:data', this.data);
+  PubSub.publish('complete-beer:data', this.data);
   })
   .catch((err) =>{
     console.error(err);
   })
+  PubSub.subscribe('BeerList:selectedID', (evt) => {
+    selectedID = evt.detail;
+    console.log('selectedID:',selectedID);
+    this.publishBeerDetail(selectedID)
+  })
 };
+
+Beers.prototype.publishBeerDetail = function (selectedID) {
+  const selectedBeerObject = this.data[selectedID];
+  console.log('selectedBeerObject',selectedBeerObject);
+  PubSub.publish('selectedBeerObject', selectedBeerObject)
+}
+
+
 
 
 
