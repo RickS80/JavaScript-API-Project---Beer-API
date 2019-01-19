@@ -15,6 +15,10 @@ BeerView.prototype.render = function () {
      tagline.textContent = this.data.tagline
      this.space.appendChild(tagline)
 
+     const firstbrewed = document.createElement('p')
+     firstbrewed.textContent = `First Brewed: ${this.data.first_brewed}`
+     this.space.appendChild(firstbrewed)
+
      const description = document.createElement('p')
      description.textContent = this.data.description
      this.space.appendChild(description)
@@ -25,7 +29,7 @@ BeerView.prototype.render = function () {
      // image.classList.add('center')
      this.space.appendChild(image);
 
-     const foodPairingTitle = document.createElement('h3');
+     const foodPairingTitle = document.createElement('p');
      foodPairingTitle.textContent = `Suggested Food Pairings:`
      this.space.appendChild(foodPairingTitle);
 
@@ -44,6 +48,17 @@ BeerView.prototype.createPairingList = function (pairings) {
    });
 
    return list;
+
+ };
+
+ BeerView.prototype.renderAll = function () {
+   this.space.innerHTML = " "
+
+      this.data.forEach( beer  => {
+      const li = document.createElement('li')
+      li.textContent = `${beer.name} (abv: ${beer.abv}%)`
+      this.space.appendChild(li)
+      })
 
  };
 

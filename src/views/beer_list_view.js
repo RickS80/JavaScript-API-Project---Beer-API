@@ -1,6 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js')
 const BeerView = require('./beer_view.js')
-
+// const Highcharts = require('./highchart_view.js')
 
 const BeerListView = function(container, selection){
   this.container = container
@@ -11,8 +11,9 @@ const BeerListView = function(container, selection){
 BeerListView.prototype.bindEvents = function () {
   PubSub.subscribe('complete-beer:data', (evt) =>{
     this.data = evt.detail;
-    // console.log(this.data);
+    console.log(this.data);
     this.populate(this.data)
+    this.renderAll()
   })
 
   this.selection.addEventListener('change', (evt) => {
@@ -27,6 +28,12 @@ BeerListView.prototype.bindEvents = function () {
         console.log('BeerListObject:',this.data);
         this.render();
       })
+
+
+
+
+
+
 }
 
 BeerListView.prototype.populate = function (beers) {
@@ -44,6 +51,13 @@ BeerListView.prototype.render = function () {
     beerView.render();
 };
 
+BeerListView.prototype.renderAll = function () {
+  const allBeerView = new BeerView(this.container, this.data)
+    allBeerView.renderAll();
+
+
+
+};
 
 
 

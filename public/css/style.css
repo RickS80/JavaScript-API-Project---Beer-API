@@ -12,6 +12,9 @@ h1 {
   font-family: 'Libre Barcode 128 Text', cursive;
   font-size: 112px;
   color: white;
+  margin-bottom: 15px;
+  margin-top: 15px;
+
 
 }
 
@@ -26,14 +29,28 @@ h4 {
   color: white;
 }
 
-.image {
-  height:200px
-
+.beer-container {
+  border: 5px solid white;
+  padding: 10px;
+  margin-top: 20px;
 }
 
-.center {
+.image {
+  height:200px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: auto;
+
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  border: solid white;
+  margin: 10px;
+  padding: 20px;
+
 }
